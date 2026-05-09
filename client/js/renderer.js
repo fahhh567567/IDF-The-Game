@@ -1,32 +1,53 @@
-import { worldState, playerId } from "./network.js";
+import { snapshots, playerId } from "./network.js";
 
-const playerDivs = {};
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
 
+// ----------------------
+// BACKGROUND IMAGE
+// ----------------------
+const bg = new Image();
+bg.src = "assets/bg.png";
+
+// ----------------------
+// RESIZE
+// ----------------------
+function resize() {
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+}
+
+resize();
+
+window.addEventListener("resize", resize);
+
+// ----------------------
+// RENDER
+// ----------------------
 export function render() {
-  const world = document.getElementById("world");
+  // clear frame
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  Object.keys(worldState).forEach(id => {
+  // draw static background
+  if (bg.complete) {
+    ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+  }
 
-    const p = worldState[id];
+  // latest server snapshot ONLY
+  const latest = snapshots[snapshots.length - 1];
 
-    let el = playerDivs[id];
+  if (!latest) return;
 
-    if (!el) {
-      el = document.createElement("div");
+  const state = latest.players;
 
-      el.style.position = "absolute";
-      el.style.width = "30px";
-      el.style.height = "30px";
+  // draw players
+  for (const id in state) {
+    const p = state[id];
 
-      el.style.background =
-        id === playerId ? "blue" : "red";
+    ctx.fillStyle = id === playerId ? "blue" : "red";
 
-      world.appendChild(el);
-
-      playerDivs[id] = el;
-    }
-
-    el.style.left = p.x + "px";
-    el.style.top = p.y + "px";
-  });
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 15, 0, Math.PI * 2);
+    ctx.fill();
+  }
 }

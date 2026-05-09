@@ -1,10 +1,8 @@
 export const state = {
-  playerX: 200,
-  playerY: 200,
+  // purely client-side settings (NOT physics)
+  speed: 5,
 
-  targetX: 200,
-  targetY: 200,
-
-  speed: 5
+  // optional UI/debug flags
+  debug: false
 };
-console.log("STATE INITIALIZED");
+console.log("STATE INITIALIZED (clean mode)");

@@ -1,8 +1,8 @@
 import { sendMove } from "./network.js";
 
-document.addEventListener("click", (e) => {
+const game = document.getElementById("game");
 
-  const game = document.getElementById("game");
+game.addEventListener("click", (e) => {
   const rect = game.getBoundingClientRect();
 
   const x = e.clientX - rect.left;

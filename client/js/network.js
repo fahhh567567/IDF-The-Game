@@ -2,6 +2,7 @@ const socket = new WebSocket("ws://localhost:3000");
 
 export let worldState = {};
 export let playerId = null;
+export let snapshots = [];
 
 socket.onopen = () => {
   console.log("Connected to server");
@@ -15,7 +16,19 @@ socket.onmessage = (event) => {
   }
 
   if (data.type === "state") {
-    worldState = data.players;
+
+    // IMPORTANT: deep clone snapshot
+    snapshots.push({
+      time: data.time,
+      players: structuredClone(data.players)
+    });
+
+    // keep only latest snapshots
+    if (snapshots.length > 10) {
+      snapshots.shift();
+    }
+
+    worldState = structuredClone(data.players);
   }
 };
 
@@ -26,4 +39,5 @@ export function sendMove(x, y) {
     y
   }));
 }
+
 console.log("network.js loaded");
