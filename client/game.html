@@ -3,37 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <title>IDF The Game</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/play.css" />
 </head>
+
 <body>
-  <!-- OUTER FRAME (full screen container, centers the game box) -->
-<div id="outer">
 
-  <!-- GAME WINDOW (fixed aspect ratio box) -->
-  <div id="game">
+  <div id="page">
 
-    <!-- WORLD LAYER (everything in the game world: map, players, objects) -->
-    <div id="world">
+    <div id="gameBox">
 
-      <!-- PLAYER ENTITY (your character in the world) -->
-      <div id="player"></div>
+      <canvas id="game"></canvas>
 
-    </div>
-
-    <!-- UI LAYER (HUD, chat, menus, overlays - always on top) -->
-    <div id="ui">
-
-      <!-- CHAT UI (input box for typing messages) -->
       <div id="chat">
+        <div id="chatMessages"></div>
         <input id="chatInput" placeholder="Type..." />
       </div>
 
     </div>
 
   </div>
-</div>
 
- <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 
 </body>
 </html>

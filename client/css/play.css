@@ -1,0 +1,101 @@
+/* -----------------------------
+   GLOBAL RESET
+----------------------------- */
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: monospace;
+}
+
+/* -----------------------------
+   OUTER PAGE (WINDOWED MODE BACKGROUND)
+----------------------------- */
+#page {
+  width: 100vw;
+  height: 100vh;
+  background: #2f4f2f;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -----------------------------
+   GAME WINDOW (BOX MODE)
+----------------------------- */
+#gameBox {
+  width: 900px;
+  height: 600px;
+
+  background: #000;
+  position: relative;
+
+  border: 3px solid #1e2f1e;
+  overflow: hidden;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* -----------------------------
+   CANVAS (WORLD RENDERING)
+----------------------------- */
+#game {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* -----------------------------
+   CHAT (INSIDE GAME BOX)
+----------------------------- */
+#chat {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+
+  width: 260px;
+
+  color: white;
+  font-size: 12px;
+}
+
+/* chat message window */
+#chatMessages {
+  height: 140px;
+  overflow-y: auto;
+
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px;
+
+  border: 1px solid #222;
+}
+
+/* chat input */
+#chatInput {
+  width: 100%;
+  box-sizing: border-box;
+
+  margin-top: 4px;
+  padding: 6px;
+
+  border: none;
+  outline: none;
+
+  background: rgba(20, 20, 20, 0.9);
+  color: white;
+}
+
+/* -----------------------------
+   FULLSCREEN MODE
+----------------------------- */
+.fullscreen {
+  background: black;
+}
+
+.fullscreen #gameBox {
+  width: 100vw;
+  height: 100vh;
+
+  border: none;
+  box-shadow: none;
+}
