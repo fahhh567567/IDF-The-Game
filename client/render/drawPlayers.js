@@ -53,7 +53,7 @@ export function drawPlayers(ctx, players) {
       continue;
     }
 
-    const size = 128;
+    const size = 130;
     const offsetY = -35;
 
     ctx.drawImage(

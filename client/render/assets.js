@@ -26,5 +26,6 @@ export const avatars = {
 // UI
 // ----------------------
 export const ui = {
-  toolbar: loadImage("../assets/toolbar.png")
+  toolbar: loadImage("../assets/toolbar.png"),
+  mapIcon: loadImage("../assets/mapicon.png")
 };

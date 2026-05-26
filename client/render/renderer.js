@@ -12,10 +12,10 @@ console.log("stateBuffer:", stateBuffer);
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
-// IMPORTANT: prevents blurry sprites when scaling
+// prevent blur
 ctx.imageSmoothingEnabled = false;
 
-// 🔥 CRITICAL: ensure canvas resolution is ALWAYS correct
+// set canvas size
 canvas.width = 1520;
 canvas.height = 960;
 
@@ -36,23 +36,20 @@ export function render() {
   drawBackground(ctx, room, backgrounds);
 
   // ----------------------
-  // GET LATEST STATE
+  // GET STATE
   // ----------------------
   const latest = stateBuffer[stateBuffer.length - 1];
 
-  if (!latest || !latest.players) {
-    drawUI(ctx);
-    return;
+  // ----------------------
+  // WORLD (only if data exists)
+  // ----------------------
+  if (latest && latest.players) {
+    drawExits(ctx, exits);
+    drawPlayers(ctx, latest.players);
   }
 
   // ----------------------
-  // WORLD
-  // ----------------------
-  drawExits(ctx, exits);
-  drawPlayers(ctx, latest.players);
-
-  // ----------------------
-  // UI LAST
+  // UI (ALWAYS LAST)
   // ----------------------
   drawUI(ctx, canvas);
 }

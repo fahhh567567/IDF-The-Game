@@ -1,6 +1,5 @@
 import "./input/mouse.js";
 import "./input/movement.js";
-
 import { render } from "./render/renderer.js";
 
 // ----------------------
