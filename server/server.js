@@ -41,7 +41,7 @@ wss.on("connection", (ws) => {
   // create player
     // create player
   const player = {
-  speed: 5060
+  speed: 160
 };
 
   // apply room spawn

@@ -28,7 +28,7 @@ export function drawUI(ctx, canvas) {
   // ----------------------
   // TOOLBAR
   // ----------------------
-  const toolbarWidth = 1025;
+  const toolbarWidth = 950;
   const toolbarHeight = 225;
 
   const toolbarX =
@@ -50,16 +50,14 @@ export function drawUI(ctx, canvas) {
   // ----------------------
   // MAP ICON
   // ----------------------
-  const iconSize = 100;
+  const iconSize = 120;
 
   // freely move map inside HUD
   const mapX =
-    toolbarX +
-    toolbarWidth +
-    10;
+  hud.width - 250;
 
   const mapY =
-    hud.y + 50;
+    hud.y + 35;
 
   ctx.drawImage(
     ui.mapIcon,
