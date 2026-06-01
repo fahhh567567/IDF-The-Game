@@ -1,6 +1,6 @@
 import { sendMove } from "../state/network.js";
 
-// optional future use (WASD / joystick / prediction)
+// optional future use prediction
 export function updateMovement(input) {
   if (!input) return;
 

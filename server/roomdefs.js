@@ -40,7 +40,7 @@ module.exports = {
         type: "exit",
 
         x: 0,
-        y: 150,
+        y: 650,
         w: 40,
         h: 120,
 
